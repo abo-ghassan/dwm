@@ -1,20 +1,33 @@
+
+/* ██████╗ ██╗    ██╗███╗   ███╗ */
+/* ██╔══██╗██║    ██║████╗ ████║ */
+/* ██║  ██║██║ █╗ ██║██╔████╔██║ */
+/* ██║  ██║██║███╗██║██║╚██╔╝██║ */
+/* ██████╔╝╚███╔███╔╝██║ ╚═╝ ██║ */
+/* ╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝ */
+
+/* By Sa'eed AL_Habal */                             
+/* Github: https://github.com/abo-ghassan */
+
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Jetbrains Mono NL:size=10","NotoColorEmoji:pixelsize=20" };
-static const char dmenufont[]       = "Jetbrains Mono NL:size=11";
-static const char ui_color[10][8]   = {
-/*	main1		main2		text		unfocus_text	*/
-	/*"#8a4016",	"#332925",	"#eeeeee",	"#bbbbbb"*/
-	/*"#ff9900",	"#999999",	"#262626",	"#262626"*/
-	"#d79921","#a89984","#282828","#282828"
 
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
+
+static const char *fonts[]          = { "Monospace:size=11", "NotoColorEmoji:pixelsize=20" };
+static const char dmenufont[]       = "Monospace:size=11";
+
+static const char ui_color[4][8]   = {
+	"#7d2ba9", //main
+	"#363636", //unfocus main
+	"#bfbfbf", //text
+	"#bfbfbf"  //unfocus text
 };
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
+	/*               fg           bg           border   */
 	[SchemeNorm] = { ui_color[3], ui_color[1], ui_color[1] },
 	[SchemeSel]  = { ui_color[2], ui_color[0], ui_color[0] },
 };
@@ -58,20 +71,22 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", ui_color[1], "-nf", ui_color[3], "-sb", ui_color[0], "-sf", ui_color[2], NULL };
+static const char *dmenucmd[] = {"dmenu_run", NULL};
 static const char *termcmd[]  = { "st", NULL };
-static const char *browser[] = {"firefox", NULL};
-static const char *emoji[] = {"emoji",NULL};
-static const char *keyboard_layout[] = {"change_layout",NULL};
-static const char *lockscreen[] = {"betterlockscreen", "-l", "dimblur",NULL};
+
+/* static const char *browser[] = {"firefox", NULL}; */
+/* static const char *emoji[] = {"emoji",NULL}; */
+/* static const char *keyboard_layout[] = {"change_layout",NULL}; */
+/* static const char *lockscreen[] = {"betterlockscreen", "-l", "dimblur",NULL}; */
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		        XK_x,	   spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,  	   {.v = browser } },
-	{ MODKEY,                       XK_e,	   spawn,  	   {.v = emoji } },
-	{ ShiftMask,                    XK_Alt_L,  spawn,  	   {.v = keyboard_layout } },
-	{ MODKEY|ShiftMask,             XK_Tab,    spawn,  	   {.v = lockscreen } },
+	/* { MODKEY,                       XK_b,      spawn,  	   {.v = browser } }, */
+	/* { MODKEY,                       XK_e,	   spawn,  	   {.v = emoji } }, */
+	/* { ShiftMask,                    XK_Alt_L,  spawn,  	   {.v = keyboard_layout } }, */
+	/* { MODKEY|ShiftMask,             XK_Tab,    spawn,  	   {.v = lockscreen } }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
