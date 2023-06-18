@@ -18,11 +18,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 static const char *fonts[]          = { "Monospace:size=11", "NotoColorEmoji:pixelsize=20" };
-static const char dmenufont[]       = "Monospace:size=11";
+/* static const char dmenufont[]       = "Monospace:size=11"; */
 
 static const char ui_color[4][8]   = {
-	"#7d2ba9", //main
-	"#363636", //unfocus main
+	"#660066", //main
+	"#222222", //unfocus main
 	"#bfbfbf", //text
 	"#bfbfbf"  //unfocus text
 };
