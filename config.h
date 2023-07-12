@@ -6,7 +6,7 @@
 /* ██████╔╝ ╚███╔███╔╝ ██║ ╚═╝ ██║ */
 /* ╚═════╝   ╚══╝╚══╝  ╚═╝     ╚═╝ */
 
-/* By Sa'eed AL_Habal */                             
+/* By Sa'eed AL-Habal */                             
 /* Github: https://github.com/abo-ghassan */
 
 /* appearance */
